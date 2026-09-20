@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎂</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:Georgia,"Times New Roman",serif;
+    background:linear-gradient(135deg,#170b25,#3b164d,#140c2b);
+    color:#fff;min-height:100vh;overflow-x:hidden;text-align:center;
+  }
+  .stars{position:fixed;inset:0;pointer-events:none;opacity:.7;
+    background-image:radial-gradient(#fff 1px,transparent 1px);
+    background-size:38px 38px;animation:twinkle 5s infinite alternate}
+  @keyframes twinkle{from{opacity:.25}to{opacity:.8}}
+  .page{display:none;min-height:100vh;padding:55px 22px 35px;position:relative;z-index:1;
+    align-items:center;justify-content:center;flex-direction:column}
+  .page.active{display:flex;animation:fadeIn .8s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .sparkles{font-size:1.4rem;letter-spacing:12px;color:#ffd6f7;margin-bottom:22px}
+  .eyebrow{font-size:1rem;letter-spacing:2px;color:#ffd4f3;margin-bottom:12px}
+  h1{font-size:clamp(2.2rem,8vw,4.7rem);line-height:1.05;margin:10px 0 20px;
+    text-shadow:0 0 25px #ff83d2}
+  h2{font-size:clamp(2rem,7vw,3.6rem);margin:12px 0;color:#ffe2f8}
+  p{font-family:Arial,sans-serif;line-height:1.7;max-width:570px;font-size:1.05rem;color:#f7eaf8}
+  .btn{border:0;border-radius:999px;padding:15px 26px;margin-top:22px;
+    background:linear-gradient(90deg,#ff75c8,#b78cff);color:#25102f;font-weight:bold;
+    letter-spacing:1px;cursor:pointer;box-shadow:0 8px 25px #0005;transition:.25s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px #0007}
+  .balloons{font-size:2.3rem;letter-spacing:8px;margin:22px 0;animation:float 3s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  .card{width:min(100%,650px);padding:30px 22px;border:1px solid #ffffff2b;
+    background:#ffffff0d;border-radius:28px;box-shadow:0 15px 60px #0004;backdrop-filter:blur(8px)}
+  .memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0;max-width:650px;width:100%}
+  .memory{height:150px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+    font-size:3rem;background:linear-gradient(135deg,#ff9bd8,#8f8bff);box-shadow:0 8px 20px #0003}
+  .cake{font-size:7rem;filter:drop-shadow(0 0 20px #ffb3e4);animation:float 2.5s infinite}
+  .heart{font-size:4rem;animation:beat 1.3s infinite}
+  @keyframes beat{50%{transform:scale(1.18)}}
+  .footer{font-family:Arial,sans-serif;font-size:.8rem;opacity:.65;margin-top:35px}
+  @media(max-width:450px){.memory-grid{gap:8px}.memory{height:105px;font-size:2.2rem}.page{padding:35px 16px}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<section class="page active" id="page1">
+  <div class="sparkles">✦ ✧ ⋆ ✦ ⋆ ✧</div>
+  <div class="eyebrow">✨ A little surprise for you...</div>
+  <h1>Something Special<br>Is Waiting 🎁</h1>
+  <div class="balloons">🎈 🎈 🎈 🎈 🎈</div>
+  <button class="btn" onclick="nextPage(2)">OPEN SURPRISE ✨</button>
+</section>
+
+<section class="page" id="page2">
+  <div class="sparkles">🎊 ✨ 🎉 ✨ 🎊</div>
+  <p>A special day for a special person...</p>
+  <h2>HAPPY<br>BIRTHDAY! 🎂</h2>
+  <h2 id="nameTitle">Dear Kanishka ❤️</h2>
+  <p>Wishing you a day filled with happiness, smiles and beautiful memories. ✨</p>
+  <button class="btn" onclick="nextPage(3)">READ YOUR MESSAGE 💌</button>
+</section>
+
+<section class="page" id="page3">
+  <div class="card">
+    <div class="heart">💌</div>
+    <p>A little message for you...</p>
+    <h2 id="messageName">Dear Kanishka ❤️</h2>
+    <p>
+      May every new day bring you peace, confidence, laughter and beautiful
+      opportunities. Keep shining, keep smiling, and never forget how special
+      you are. With lots of good wishes! ✨
+    </p>
+    <p><b>With love 💜</b></p>
+    <button class="btn" onclick="nextPage(4)">SEE THE MEMORIES 📸</button>
+  </div>
+</section>
+
+<section class="page" id="page4">
+  <p>Some beautiful memories... ❤️</p>
+  <h2>Memories 📸</h2>
+  <div class="memory-grid">
+    <div class="memory">📸</div><div class="memory">✨</div><div class="memory">❤️</div>
+  </div>
+  <p>Every memory is a little treasure. ✨</p>
+  <button class="btn" onclick="nextPage(5)">ONE LAST SURPRISE 🎁</button>
+</section>
+
+<section class="page" id="page5">
+  <p>Make a wish... ✨</p>
+  <h2>Birthday Cake 🎂</h2>
+  <div class="cake">🎂</div>
+  <p>Close your eyes and make a wish... 💫</p>
+  <button class="btn" onclick="nextPage(6)">MAKE A WISH ✨</button>
+</section>
+
+<section class="page" id="page6">
+  <div class="sparkles">✨ ✦ ✨ ✦ ✨</div>
+  <div class="heart">❤️</div>
+  <h2>Happy Birthday,<br><span id="finalName">Kanishka</span>! 🎉</h2>
+  <p>May your days be filled with happiness, laughter and beautiful memories. ❤️</p>
+  <p>Have an amazing birthday! 🎂✨</p>
+  <button class="btn" onclick="nextPage(1)">WATCH AGAIN 🔄</button>
+  <div class="footer">Made with love ✨</div>
+</section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = (params.get("name") || "Kanishka").trim() || "Kanishka";
+  document.getElementById("nameTitle").textContent = "Dear " + name + " ❤️";
+  document.getElementById("messageName").textContent = "Dear " + name + " ❤️";
+  document.getElementById("finalName").textContent = name;
+
+  function nextPage(number){
+    document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+    document.getElementById("page" + number).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+</script>
+</body>
+</html>
